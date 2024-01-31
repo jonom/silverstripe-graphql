@@ -306,7 +306,7 @@ class Controller extends BaseController
         if ($referer) {
             // Extract protocol, hostname, and port
             $refererParts = parse_url($referer ?? '');
-            if (!$refererParts) {
+            if (!isset($refererParts['scheme'], $refererParts['host'])) {
                 return null;
             }
             // Rebuild
